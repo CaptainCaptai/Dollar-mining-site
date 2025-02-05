@@ -1,0 +1,28 @@
+document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+    localStorage.setItem("activateDate", new Date().toLocaleDateString());
+
+    showDashboard();
+});
+
+function showDashboard() {
+    document.querySelector(".container").style.display = "none";
+    document.querySelector(".dashboard").style.display = "block";
+
+    document.getElementById("user-name").innerText = localStorage.getItem("username");
+    document.getElementById("user-username").innerText = localStorage.getItem("username");
+    document.getElementById("activate-date").innerText = localStorage.getItem("activateDate");
+}
+
+function deposit() {
+    alert("Deposit system coming soon!");
+}
+
+if (localStorage.getItem("username")) {
+    showDashboard();
+}
